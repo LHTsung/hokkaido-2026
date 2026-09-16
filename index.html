@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>2026 北海道冬日雪祭 7天6夜行程表</title>
+    <style>
+        :root {
+            --primary: #1e3d59;
+            --primary-light: #f5f8fa;
+            --accent: #17b978;
+            --accent-warm: #ff6e40;
+            --text-main: #2b2d42;
+            --text-muted: #6c757d;
+            --card-bg: #ffffff;
+            --bg-color: #f0f4f8;
+            --border-color: #e2e8f0;
+            --tag-jr: #0284c7;
+            --tag-bus: #ea580c;
+            --tag-walk: #16a34a;
+            --tag-food: #d97706;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Header Hero */
+        .hero {
+            background: linear-gradient(135deg, #1e3d59 0%, #17b978 100%);
+            color: white;
+            padding: 32px 20px 24px;
+            border-radius: 0 0 24px 24px;
+            box-shadow: 0 4px 20px rgba(30, 61, 89, 0.15);
+        }
+
+        .hero h1 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .hero-meta {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .hero-badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 3px 10px;
+            border-radius: 20px;
+            backdrop-filter: blur(4px);
+            font-size: 0.78rem;
+        }
+
+        /* Container */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* Overview Quick Stats */
+        .quick-tips {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 16px;
+            margin-top: -16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            text-align: center;
+        }
+
+        .tip-item h4 {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .tip-item p {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Notice Card */
+        .notice-card {
+            background: #fff8eb;
+            border-left: 4px solid var(--accent-warm);
+            padding: 12px 14px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.82rem;
+            color: #854d0e;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+
+        .notice-card strong {
+            display: block;
+            margin-bottom: 4px;
+            font-size: 0.88rem;
+        }
+
+        /* Day Tabs / Navigation */
+        .day-nav {
+            display: flex;
+            overflow-x: auto;
+            gap: 8px;
+            padding: 4px 0 14px;
+            margin-bottom: 12px;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+        .day-nav::-webkit-scrollbar {
+            display: none;
+        }
+
+        .nav-chip {
+            flex: 0 0 auto;
+            background: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 6px 14px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-decoration: none;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: all 0.2s ease;
+        }
+
+        .nav-chip:active {
+            transform: scale(0.95);
+        }
+
+        /* Day Card */
+        .day-card {
+            background: var(--card-bg);
+            border-radius: 18px;
+            padding: 20px 18px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+            border: 1px solid #f0f3f6;
+            scroll-margin-top: 16px;
+        }
+
+        .day-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #edf2f7;
+            padding-bottom: 12px;
+            margin-bottom: 16px;
+        }
+
+        .day-title-wrap {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+
+        .day-number {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .day-date {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .day-badge {
+            font-size: 0.75rem;
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 3px 8px;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Timeline Items */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            bottom: 6px;
+            width: 2px;
+            background: #e2e8f0;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 18px;
+        }
+
+        .timeline-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -20px;
+            top: 5px;
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 3px solid var(--tag-jr);
+            box-sizing: border-box;
+        }
+
+        .timeline-dot.spot { border-color: var(--accent); }
+        .timeline-dot.food { border-color: var(--tag-food); }
+        .timeline-dot.hotel { border-color: #8b5cf6; }
+
+        .item-time {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            margin-bottom: 2px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tag {
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 1px 6px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .tag-jr { background: #e0f2fe; color: var(--tag-jr); }
+        .tag-bus { background: #ffedd5; color: var(--tag-bus); }
+        .tag-spot { background: #dcfce7; color: var(--tag-walk); }
+        .tag-food { background: #fef3c7; color: var(--tag-food); }
+
+        .item-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 3px;
+        }
+
+        .item-desc {
+            font-size: 0.82rem;
+            color: #4b5563;
+            line-height: 1.5;
+        }
+
+        /* Tips section inside day */
+        .day-tip {
+            margin-top: 14px;
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 10px 12px;
+            font-size: 0.78rem;
+            color: #475569;
+            border: 1px dashed #cbd5e1;
+        }
+
+        /* Packing & Tips Section */
+        .card-tips {
+            background: white;
+            border-radius: 18px;
+            padding: 20px 18px;
+            margin-top: 24px;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+        }
+
+        .card-tips h3 {
+            font-size: 1.05rem;
+            color: var(--primary);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .tips-list {
+            list-style: none;
+        }
+
+        .tips-list li {
+            position: relative;
+            padding-left: 18px;
+            margin-bottom: 10px;
+            font-size: 0.82rem;
+            color: #374151;
+            line-height: 1.5;
+        }
+
+        .tips-list li::before {
+            content: "✔";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <h1>北海道冬日雪祭 7 天 6 夜</h1>
+        <p style="font-size: 0.88rem; opacity: 0.95;">無自駕・全大眾運輸自由行手冊</p>
+        <div class="hero-meta">
+            <span class="hero-badge">📅 2026/02/05 - 02/11</span>
+            <span class="hero-badge">✈️ 新千歲進出</span>
+            <span class="hero-badge">❄️ 札幌雪祭 ＆ 小樽雪燈</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- 快速重點 -->
+        <div class="quick-tips">
+            <div class="tip-item">
+                <h4>核心交通</h4>
+                <p>JR + 地鐵 + 巴士</p>
+            </div>
+            <div class="tip-item">
+                <h4>住宿策略</h4>
+                <p>札幌市區主推</p>
+            </div>
+            <div class="tip-item">
+                <h4>必備裝備</h4>
+                <p>鞋底冰爪/防滑套</p>
+            </div>
+        </div>
+
+        <div class="notice-card">
+            <strong>💡 不租車冬季核心建議</strong>
+            雪地拖行李極為不便，建議 2/5～2/9 札幌固定住同一間飯店。去登別溫泉只帶輕便後背包，大行李免費寄放札幌飯店！
+        </div>
+
+        <!-- 日期快捷導覽 -->
+        <div class="day-nav">
+            <a href="#d1" class="nav-chip">D1 抵達</a>
+            <a href="#d2" class="nav-chip">D2 雪祭</a>
+            <a href="#d3" class="nav-chip">D3 小樽</a>
+            <a href="#d4" class="nav-chip">D4 旭川</a>
+            <a href="#d5" class="nav-chip">D5 登別</a>
+            <a href="#d6" class="nav-chip">D6 札幌</a>
+            <a href="#d7" class="nav-chip">D7 返程</a>
+        </div>
+
+        <!-- Day 1 -->
+        <section class="day-card" id="d1">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 1</span>
+                    <span class="day-date">2/5 (週四)</span>
+                </div>
+                <span class="day-badge">千歲 ➔ 札幌</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">JR 快速 Airport</span> 下午</div>
+                    <div class="item-title">抵達新千歲機場 ➔ 前往札幌站</div>
+                    <div class="item-desc">下機入境後，於 B1 搭乘 JR 快速 Airport 線（約 37 分鐘）直達札幌市區。出站可在便利店購買防滑鞋套。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot hotel"></div>
+                    <div class="item-time">傍晚</div>
+                    <div class="item-title">飯店 Check-in 卸行李</div>
+                    <div class="item-desc">推薦入住札幌站前或大通公園周圍飯店，進出車站皆有地下街防風雪。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot food"></div>
+                    <div class="item-time"><span class="tag tag-food">在地美食</span> 晚上</div>
+                    <div class="item-title">薄野商圈：熱騰騰晚餐</div>
+                    <div class="item-desc">享受北海道特色「成吉思汗烤羊肉（如達摩）」或拉麵橫丁的濃郁味噌拉麵，祛寒暖胃。</div>
+                </div>
+            </div>
+            <div class="day-tip">📌 貼士：新千歲機場 JR 綠色窗口可順便把後續天數前往旭川、登別的指定席座位劃好。</div>
+        </section>
+
+        <!-- Day 2 -->
+        <section class="day-card" id="d2">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 2</span>
+                    <span class="day-date">2/6 (週五)</span>
+                </div>
+                <span class="day-badge">札幌雪祭焦點</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">主會場</span> 09:30 - 13:00</div>
+                    <div class="item-title">大通公園雪祭會場</div>
+                    <div class="item-desc">橫跨 1 至 12 丁目，欣賞超壯觀巨大雪雕、國際雪雕競賽。邊走邊品嘗北海道名物海鮮湯、烤扇貝等熱食。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">冰雕街</span> 14:30 - 17:00</div>
+                    <div class="item-title">薄野冰雕會場 (Susukino Site)</div>
+                    <div class="item-desc">展出晶瑩剔透的中小型精雕冰雕，包含冰封海鮮等獨特主題。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">夜景觀賞</span> 17:30 - 19:00</div>
+                    <div class="item-title">札幌電視塔 ＆ 大通夜間燈光秀</div>
+                    <div class="item-desc">登上電視塔眺望延伸在白雪中的大通公園點燈全景，雪雕在燈光投射下極具張力。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot food"></div>
+                    <div class="item-time"><span class="tag tag-food">名物晚餐</span> 19:30</div>
+                    <div class="item-title">湯咖哩名店（Suage+ 或 Garaku）</div>
+                    <div class="item-desc">香料濃郁搭配在地時令炸蔬菜，是冬夜札幌最佳治癒美食。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 3 -->
+        <section class="day-card" id="d3">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 3</span>
+                    <span class="day-date">2/7 (週六)</span>
+                </div>
+                <span class="day-badge">小樽浪漫雪燈</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">JR 快速</span> 09:30</div>
+                    <div class="item-title">札幌 ➔ 南小樽站（約 32 分鐘）</div>
+                    <div class="item-desc">建議在「南小樽站」下車，由童話十字路口一路向小樽站順向散步，不走回頭路。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">漫步</span> 10:30 - 15:30</div>
+                    <div class="item-title">堺町通商店街 ＆ 音樂盒堂</div>
+                    <div class="item-desc">欣賞蒸汽鐘報時，選購北一硝子玻璃工藝；品嘗 LeTAO 雙層乳酪蛋糕、北菓樓夢不思議大泡芙。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">重頭戲</span> 17:00 - 19:00</div>
+                    <div class="item-title">小樽運河「雪燈之路」點燈</div>
+                    <div class="item-desc">運河水面上漂浮手作浮玉燭光，沿岸雪人雪燭亮起，與紅磚倉庫相映成趣，冬夜氛圍極致浪漫。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">JR 快速</span> 19:30</div>
+                    <div class="item-title">小樽站 ➔ 返回札幌站</div>
+                    <div class="item-desc">搭乘 JR 列車回札幌，車程約 35 分鐘，舒適快捷。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 4 -->
+        <section class="day-card" id="d4">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 4</span>
+                    <span class="day-date">2/8 (週日)</span>
+                </div>
+                <span class="day-badge">旭川企鵝雪地散步</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">特急 Lilac / Kamui</span> 07:49</div>
+                    <div class="item-title">札幌 ➔ 旭川站（約 1.5 小時）</div>
+                    <div class="item-desc">搭乘早班特急列車前往旭川，出站後至 6 號公車月台搭乘動物園直達接駁巴士（約 40 分鐘）。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">必看</span> 11:00 / 14:30</div>
+                    <div class="item-title">旭山動物園：企鵝雪中散步</div>
+                    <div class="item-desc">近距離目睹企鵝列隊在雪道上搖搖晃晃巡行；接著參觀海豹圓柱水槽與北極熊跳水館。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot food"></div>
+                    <div class="item-time"><span class="tag tag-food">拉麵名物</span> 15:30 - 17:00</div>
+                    <div class="item-title">旭川站周邊享用醬油拉麵</div>
+                    <div class="item-desc">回程返回旭川站前品嚐「梅光軒」或「蜂屋」，道地的油脂厚湯底特別驅寒。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">特急列車</span> 17:30 左右</div>
+                    <div class="item-title">旭川 ➔ 返回札幌站</div>
+                    <div class="item-desc">搭乘特急返回札幌，晚上在市區逛逛或提早回飯店休息充電。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 5 -->
+        <section class="day-card" id="d5">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 5</span>
+                    <span class="day-date">2/9 (週一)</span>
+                </div>
+                <span class="day-badge">登別溫泉一泊二食</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot hotel"></div>
+                    <div class="item-time">10:00</div>
+                    <div class="item-title">輕裝出發：行李寄放札幌飯店</div>
+                    <div class="item-desc">將大行李寄存在札幌飯店，僅帶 1 晚換洗衣物輕裝出發，在雪地行動無負擔。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">JR 北斗特急</span> 10:30 - 11:45</div>
+                    <div class="item-title">札幌站 ➔ 登別站 ➔ 轉乘公車</div>
+                    <div class="item-desc">JR 登別站出站後，在站前換乘道南巴士（約 15 分鐘）直達「登別溫泉小鎮」。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">景觀步道</span> 13:30 - 16:00</div>
+                    <div class="item-title">登別地獄谷 ＆ 鐵泉池散策</div>
+                    <div class="item-desc">漫步於白雪皚皚與硫磺熱氣蒸騰交織的火山峽谷木棧道，壯觀如仙境。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot hotel"></div>
+                    <div class="item-time"><span class="tag tag-food">一泊二食</span> 17:30 起</div>
+                    <div class="item-title">溫泉飯店：會席料理 ＆ 露天風呂</div>
+                    <div class="item-desc">入住如第一瀧本館或御宿清水屋，享受多達數種泉質的露天雪景風呂與頂級溫泉料理。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 6 -->
+        <section class="day-card" id="d6">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 6</span>
+                    <span class="day-date">2/10 (週二)</span>
+                </div>
+                <span class="day-badge">登別 ➔ 札幌採購</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot hotel"></div>
+                    <div class="item-time">09:30 - 11:00</div>
+                    <div class="item-title">溫泉街晨間悠閒漫步</div>
+                    <div class="item-desc">悠閒享用早餐、泡晨湯，走訪閻魔堂機關變臉秀與湯澤神社，11:00 退房。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time"><span class="tag tag-jr">JR 特急</span> 12:00 - 13:20</div>
+                    <div class="item-title">返回札幌 ＆ 取回大行李</div>
+                    <div class="item-desc">搭車回到札幌飯店領回行李與重新入住，下午市區活動。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">購物</span> 14:30 - 18:30</div>
+                    <div class="item-title">狸小路商店街 ＆ 大丸百貨採買</div>
+                    <div class="item-desc">採買藥妝、白色戀人、六花亭伴手禮，全程走地下街或有拱廊商圈，不怕風雪。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot food"></div>
+                    <div class="item-time"><span class="tag tag-food">豪華晚餐</span> 19:30</div>
+                    <div class="item-title">北海道三大蟹盛宴（螃蟹本家）</div>
+                    <div class="item-desc">最後一晚犒賞自己，品嚐帝王蟹、松葉蟹與毛蟹火鍋宴。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Day 7 -->
+        <section class="day-card" id="d7">
+            <div class="day-header">
+                <div class="day-title-wrap">
+                    <span class="day-number">Day 7</span>
+                    <span class="day-date">2/11 (週三)</span>
+                </div>
+                <span class="day-badge">機場採購 ➔ 返程</span>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot hotel"></div>
+                    <div class="item-time">09:00 - 10:30</div>
+                    <div class="item-title">整理行裝、退房出發</div>
+                    <div class="item-desc">準備前往札幌站，搭乘快速 Airport 線直奔新千歲機場（建議預留 3 小時）。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot spot"></div>
+                    <div class="item-time"><span class="tag tag-spot">超好逛</span> 11:30 - 14:00</div>
+                    <div class="item-title">新千歲機場國內線商場大搜羅</div>
+                    <div class="item-desc">北海道最好逛的購物中心其實在機場！包含哆啦A夢空中樂園、Royce 巧克力工廠、海鮮便當與現烤生乳捲。</div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="item-time">下午 / 傍晚</div>
+                    <div class="item-title">辦理登機、平安賦歸</div>
+                    <div class="item-desc">帶著滿滿的雪祭回憶與戰利品踏上歸途。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 實用貼士區 -->
+        <div class="card-tips">
+            <h3>🧳 冬季無自駕實用 Checklist</h3>
+            <ul class="tips-list">
+                <li><strong>鞋底防滑（黑冰防摔）</strong>：新千歲機場或札幌便利商店即有販售套在鞋底的橡膠冰爪釘套（約 ¥1,000~1,500），走在結冰路面極有幫助。</li>
+                <li><strong>洋蔥式穿法</strong>：室內與電車暖氣極強（常達 22~25 度），建議「排汗保暖內衣 + 毛衣/刷毛 + 防風防水厚羽絨」，易於進出室內穿脫。</li>
+                <li><strong>手機保暖</strong>：低溫電池掉電極快，可在手機背面貼暖暖包（隔著保護殼），並隨身攜帶行動電源。</li>
+                <li><strong>JR 特急指定席提早劃位</strong>：雪祭期間屬全球旅客尖峰，前往旭川與登別的特急列車務必提前劃指定席。</li>
+                <li><strong>善用札幌地下步行街 (Chi-Ka-Ho)</strong>：從札幌站到大通、薄野有長達近兩公里的地下街相通，風雪天免走地面。</li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            2026 Hokkaido Winter Tour Guide • 手機隨身行程表
+        </div>
+
+    </div>
+
+</body>
+</html>
