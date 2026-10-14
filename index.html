@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>2027 北海道雪祭 7天6夜｜三個方案選一個</title>
+<title>2027 北海道雪祭 7天6夜｜定案行程</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700;900&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -33,19 +33,16 @@ body{margin:0;background:var(--snow);color:var(--ink);
   font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
   font-size:16px;line-height:1.75}
 h1,h2,h3{font-family:"Noto Serif TC","Songti TC","PMingLiU",serif;line-height:1.3;margin:0}
-a{color:inherit}
 :focus-visible{outline:3px solid var(--lantern);outline-offset:2px;border-radius:4px}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
 
-/* Hero */
 .hero{position:relative;overflow:hidden;background:var(--night);color:#F3F7FA;padding:72px 0 56px}
 .hero canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
 .hero .wrap{position:relative}
 .hero h1{font-size:clamp(2.4rem,7vw,4.6rem);font-weight:900;letter-spacing:.04em}
 .hero h1 small{display:block;font-size:.36em;font-weight:500;letter-spacing:.2em;color:var(--ice);margin-bottom:.6em}
 .hero p.lead{max-width:34em;color:#C9D8E5;margin:20px 0 32px;font-size:1.05rem}
-.ticket{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.18);
-  border-radius:14px;overflow:hidden;max-width:640px}
+.ticket{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(255,255,255,.18);border-radius:14px;overflow:hidden;max-width:640px}
 .ticket div{background:rgba(255,255,255,.07);padding:14px 18px}
 .ticket .dir{font-size:.85rem;color:var(--ice)}
 .ticket .route{font-family:"Noto Serif TC",serif;font-size:1.35rem;font-weight:700;letter-spacing:.03em}
@@ -56,27 +53,11 @@ section{padding:56px 0 8px}
 .sec-title{font-size:1.75rem;margin-bottom:8px}
 .sec-sub{color:var(--muted);margin:0 0 24px}
 
-/* Principles */
 .principles{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
 .principles div{border-left:3px solid var(--ice);padding:2px 0 2px 16px}
 .principles h3{font-size:1.1rem;margin-bottom:4px}
 .principles p{margin:0;color:var(--muted);font-size:.95rem}
 
-/* Plan picker */
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
-.tab{flex:1 1 200px;text-align:left;cursor:pointer;border:2px solid var(--line);background:var(--paper);
-  color:var(--ink);border-radius:16px;padding:14px 18px;font:inherit;transition:border-color .2s,background .2s}
-.tab .letter{font-family:"Noto Serif TC",serif;font-weight:900;font-size:1.6rem;line-height:1;color:var(--ice)}
-.tab .name{display:block;font-weight:700;margin-top:6px}
-.tab .tag{display:block;font-size:.85rem;color:var(--muted)}
-.tab[aria-selected="true"]{border-color:var(--night);background:var(--frost)}
-.tab[aria-selected="true"] .letter{color:var(--lantern)}
-:root[data-theme="dark"] .tab[aria-selected="true"]{border-color:var(--ice)}
-@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .tab[aria-selected="true"]{border-color:var(--ice)}}
-
-.plan-head{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:baseline;margin-bottom:8px}
-.plan-head h3{font-size:1.5rem}
-.plan-desc{color:var(--muted);margin:0 0 20px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
 .chip{font-size:.85rem;padding:3px 12px;border-radius:999px;background:var(--frost);color:var(--ink)}
 .chip.warm{background:var(--lantern-soft)}
@@ -93,46 +74,25 @@ section{padding:56px 0 8px}
 .day .title{font-weight:700;margin-bottom:2px}
 .day .flow{margin:0;color:var(--muted);font-size:.95rem}
 .day .flow strong{color:var(--ink);font-weight:600}
+.day .tip{display:block;margin-top:6px;font-size:.85rem;color:var(--pine)}
 .day .away-note{display:inline-block;margin-top:6px;font-size:.8rem;color:var(--lantern);font-weight:600}
 
-/* compare table */
-.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
-table{border-collapse:collapse;width:100%;min-width:560px;font-size:.95rem}
-th,td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
-tr:last-child td{border-bottom:0}
-thead th{font-family:"Noto Serif TC",serif;background:var(--frost);font-size:1rem}
-td.y{color:var(--pine);font-weight:700}
-td.n{color:var(--muted)}
-
-/* info blocks */
 .two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px}
 .block{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px 22px}
 .block h3{font-size:1.15rem;margin-bottom:10px}
 .block ul{margin:0;padding-left:1.2em}
 .block li{margin:4px 0}
 .block p{margin:0 0 10px}
-.onsen{background:var(--lantern-soft);border:0}
-.onsen-list{display:grid;gap:12px;margin-top:12px}
-.onsen-list div b{display:block}
-.note{border-left:3px solid var(--lantern);background:var(--paper);padding:14px 18px;border-radius:0 12px 12px 0;margin-top:24px;font-size:.95rem}
+.block.warm{background:var(--lantern-soft);border:0}
 
-/* vote */
-.vote{background:var(--night);color:#EEF4F8;border-radius:22px;padding:28px;margin:56px 0 24px}
-.vote h2{font-size:1.6rem;margin-bottom:6px}
-.vote p{color:#C9D8E5;margin:0 0 18px}
-.vote fieldset{border:0;padding:0;margin:0 0 16px;display:flex;gap:10px;flex-wrap:wrap}
-.vote legend{font-weight:700;margin-bottom:8px}
-.vote label.opt{flex:1 1 150px;cursor:pointer;border:2px solid rgba(255,255,255,.25);border-radius:12px;padding:10px 14px;display:flex;gap:8px;align-items:center}
-.vote label.opt:has(input:checked){border-color:var(--lantern);background:rgba(240,168,69,.12)}
-.vote input[type=radio]{accent-color:var(--lantern)}
-.vote .field{display:block;margin-bottom:12px}
-.vote .field span{display:block;font-size:.9rem;margin-bottom:4px;color:#C9D8E5}
-.vote input[type=text],.vote textarea{width:100%;font:inherit;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,.3);background:rgba(255,255,255,.08);color:#fff}
-.vote textarea{min-height:70px;resize:vertical}
-.vote button{font:inherit;font-weight:700;cursor:pointer;border:0;border-radius:12px;padding:12px 22px;background:var(--lantern);color:#1B2A4A}
-.vote output{display:block;margin-top:14px;white-space:pre-wrap;background:rgba(255,255,255,.08);border-radius:10px;padding:12px 14px;font-size:.95rem}
-.vote output:empty{display:none}
-.status{margin-left:12px;font-size:.9rem;color:var(--ice)}
+.todo{background:var(--night);color:#EEF4F8;border-radius:22px;padding:28px;margin:56px 0 24px}
+.todo h2{font-size:1.6rem;margin-bottom:6px}
+.todo p{color:#C9D8E5;margin:0 0 18px}
+.todo ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.todo label{display:flex;gap:12px;align-items:flex-start;cursor:pointer;border:1px solid rgba(255,255,255,.2);border-radius:12px;padding:12px 14px}
+.todo input{accent-color:var(--lantern);width:18px;height:18px;margin-top:5px;flex:none}
+.todo label:has(input:checked) span{text-decoration:line-through;color:#8FA3B8}
+.todo small{display:block;color:#A9BCCD}
 
 footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center}
 @media (max-width:560px){
@@ -148,11 +108,11 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
 <header class="hero">
   <canvas id="snow" aria-hidden="true"></canvas>
   <div class="wrap">
-    <h1><small>2027 · 2/5 — 2/11</small>北海道雪祭<br>七天六夜</h1>
-    <p class="lead">全程住同一間札幌 Airbnb，不在雪地裡拖行李換飯店。下面有三個方案，看完選一個你最想去的，最下面可以直接把選擇傳回群組。</p>
+    <h1><small>2027 · 2/5（五）— 2/11（四）</small>北海道雪祭<br>七天六夜</h1>
+    <p class="lead">行程定案：住札幌 Airbnb 醫大前一間到底，跟團二日遊去旭山動物園、破冰船和層雲峽，小樽雪燈之路當天來回。每天順著一個方向走，不走回頭路。</p>
     <div class="ticket" role="list">
-      <div role="listitem"><div class="dir">去程 CI130｜2/5 週四</div><div class="route">台北 TPE ✈ 新千歲 CTS</div><div class="time">08:35 起飛 · 13:20 抵達</div></div>
-      <div role="listitem"><div class="dir">回程 CI131｜2/11 週三</div><div class="route">新千歲 CTS ✈ 台北 TPE</div><div class="time">14:40 起飛 · 18:15 抵達</div></div>
+      <div role="listitem"><div class="dir">去程 CI130｜2/5 週五</div><div class="route">台北 TPE ✈ 新千歲 CTS</div><div class="time">08:35 起飛 · 13:20 抵達</div></div>
+      <div role="listitem"><div class="dir">回程 CI131｜2/11 週四（日本假日）</div><div class="route">新千歲 CTS ✈ 台北 TPE</div><div class="time">14:40 起飛 · 18:15 抵達</div></div>
     </div>
   </div>
 </header>
@@ -160,55 +120,48 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
 <main class="wrap">
 
 <section aria-labelledby="s-logic">
-  <h2 class="sec-title" id="s-logic">三個方案都一樣的地方</h2>
-  <p class="sec-sub">不論選哪個，這幾件事都不變。</p>
+  <h2 class="sec-title" id="s-logic">這趟怎麼安排</h2>
+  <p class="sec-sub">三個原則，決定了下面每一天的排法。</p>
   <div class="principles">
-    <div><h3>札幌 Airbnb 一住到底</h3><p>免搬 20 公斤行李；有廚房和洗衣機，可以買帝王蟹、和牛回家自己煮。</p></div>
-    <div><h3>雪祭三會場全看</h3><p>大通（巨型雪雕、光雕秀）排傍晚；薄野（冰雕）晚餐後散步；TSUDOME（雪滑梯）排白天。</p></div>
-    <div><h3>夜景看天氣決定</h3><p>當天下午看藻岩山纜車的即時影像，天氣好就上山；大雪強風就改去 JR Tower T38 室內觀景台。</p></div>
+    <div><h3>札幌 Airbnb 一住到底</h3><p>住 ApartmentHotel KAIDO 醫大前，2/5～2/11 連住 6 晚。二日遊那晚只背小包出門，大行李鎖在房裡。</p></div>
+    <div><h3>兩個雪祭都看到</h3><p>札幌雪祭 2/4～2/11，小樽雪燈之路 2/6～2/13，整趟都在期間內。大通、薄野、TSUDOME 三會場全看。</p></div>
+    <div><h3>每天只往一個方向走</h3><p>順路的景點配成一組：白色戀人公園＋北海道神宮同在東西線、藻岩山＋薄野靠路面電車相連、TSUDOME＋札幌站靠東豐線直達。</p></div>
   </div>
 </section>
 
-<section aria-labelledby="s-plans">
-  <h2 class="sec-title" id="s-plans">三個方案</h2>
-  <p class="sec-sub">點選切換，逐日看行程。橘色框的日子是不住札幌的一晚。</p>
-  <div class="tabs" role="tablist" id="tabs"></div>
-  <div id="panel" role="tabpanel" aria-live="polite"></div>
-</section>
-
-<section aria-labelledby="s-compare">
-  <h2 class="sec-title" id="s-compare">差異一覽</h2>
-  <p class="sec-sub">快速看哪個方案去了哪裡。</p>
-  <div class="tbl-wrap">
-    <table>
-      <thead><tr><th scope="col">項目</th><th scope="col">A 定點放鬆</th><th scope="col">B 破冰船冒險</th><th scope="col">C 富良野美瑛</th></tr></thead>
-      <tbody>
-        <tr><th scope="row">節奏</th><td>最輕鬆</td><td>最緊湊</td><td>中等</td></tr>
-        <tr><th scope="row">小樽運河雪燈之路</th><td class="y">✓ 2/6</td><td class="y">✓ 2/8</td><td class="y">✓ 2/6</td></tr>
-        <tr><th scope="row">旭山動物園</th><td class="y">✓ JR 自己去</td><td class="y">✓ 跟團</td><td class="n">—</td></tr>
-        <tr><th scope="row">GARINKO 破冰船</th><td class="n">—</td><td class="y">✓</td><td class="n">—</td></tr>
-        <tr><th scope="row">層雲峽冰瀑祭</th><td class="n">—</td><td class="y">✓ 住一晚</td><td class="n">—</td></tr>
-        <tr><th scope="row">美瑛青池點燈・森林精靈露台</th><td class="n">—</td><td class="n">—</td><td class="y">✓</td></tr>
-        <tr><th scope="row">北海道神宮</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><th scope="row">白色戀人公園</th><td class="y">✓</td><td class="n">—</td><td class="y">✓</td></tr>
-        <tr><th scope="row">雪祭三會場</th><td class="y">✓</td><td class="y">✓</td><td class="y">✓</td></tr>
-        <tr><th scope="row">需要報名跟團</th><td class="n">不用</td><td>二日遊（含層雲峽一泊二食）</td><td>一日遊（KKday / Klook）</td></tr>
-        <tr><th scope="row">彈性預備天</th><td>2/10</td><td>2/10</td><td>2/10</td></tr>
-      </tbody>
-    </table>
+<section aria-labelledby="s-plan">
+  <h2 class="sec-title" id="s-plan">每日行程</h2>
+  <p class="sec-sub">橘色框的那天晚上住層雲峽，其他每晚都回札幌 Airbnb。</p>
+  <div class="chips">
+    <span class="chip warm">1 晚住層雲峽（團費含一泊二食）</span>
+    <span class="chip">二日遊需提早報名</span>
+    <span class="chip">小樽當日來回</span>
   </div>
+  <ol class="days" id="days"></ol>
 </section>
 
-<section aria-labelledby="s-onsen">
-  <h2 class="sec-title" id="s-onsen">加購選項：去溫泉住一晚</h2>
-  <p class="sec-sub">A、B、C 都能加，任選一天。</p>
-  <div class="block onsen">
-    <p>想泡雪景露天風呂、吃日式一泊二食的話，可以另外訂一晚溫泉飯店。那晚 Airbnb 房費會重複付，但換來的是：大行李鎖在 Airbnb，只背一個小包出門，完全不用拖行李。</p>
-    <p><b>怎麼走：</b>早上把大行李留在 Airbnb，背小包搭車去溫泉區 → 入住泡湯、吃晚宴 → 隔天早餐後退房，回札幌繼續住。</p>
-    <div class="onsen-list">
-      <div><b>定山溪溫泉</b>札幌搭河童號巴士約 60 分鐘，很多旅館有免費接駁。</div>
-      <div><b>登別溫泉</b>札幌站有直達巴士，或 JR 轉公車；地獄谷很有名。</div>
-      <div><b>支笏湖溫泉</b>例如鶴雅水之謌，湖景露天風呂；2 月剛好有支笏湖冰濤祭。</div>
+<section aria-labelledby="s-move">
+  <h2 class="sec-title" id="s-move">交通與行李</h2>
+  <p class="sec-sub">大家最常問的兩件事。</p>
+  <div class="two">
+    <div class="block">
+      <h3>小樽回札幌會不會擠不上車？</h3>
+      <p>排在週一，已經避開最擠的週末。札幌和小樽之間 JR 班次很密集，快速約 30 分鐘，最可能是要站著，而不是擠不上。</p>
+      <ul>
+        <li>17:00 點燈就到，18:30 左右往車站走，避開 21:00 散場尖峰。</li>
+        <li>一到小樽先在車站買好回程「快速 Airport」的 u-seat 指定席。</li>
+        <li>每人準備 Suica 或 Kitaca，不用排隊買票。</li>
+        <li>備案：高速巴士約 60 分鐘。</li>
+      </ul>
+    </div>
+    <div class="block">
+      <h3>札幌車站可以寄行李嗎？</h3>
+      <p>可以，但我們大行李一直放 Airbnb，大概用不到。以 2026 年為例：</p>
+      <ul>
+        <li>雪祭期間札幌站、大通站有臨時寄放處，每件 1,000 日圓，當天要取回。</li>
+        <li>當日配送：札幌站寄，當天送到新千歲機場，需預約，1,000 日圓起。最後一天想空手逛街再去機場時好用。</li>
+        <li>站內置物櫃因新幹線工程位置分散，大型櫃很搶，不要依賴。</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -218,12 +171,13 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
   <p class="sec-sub">訂房跟打包時請大家一起看一下。</p>
   <div class="two">
     <div class="block">
-      <h3>挑 Airbnb 的條件</h3>
+      <h3>我們的住處</h3>
       <ul>
-        <li>離地下鐵出口步行 3 分鐘內，而且那個出口有電梯。</li>
-        <li>有 FF 煤油或瓦斯暖氣機，只有一般冷暖氣空調晚上會不夠暖。</li>
-        <li>電子鎖或鑰匙盒自助入住，15:00 左右到也能直接進房。</li>
-        <li>廚房可用：二條市場、大丸百貨 B1 買蟹腳、和牛、生干貝、牛奶，回來煮海鮮和牛火鍋。</li>
+        <li><b>ApartmentHotel KAIDO 醫大前</b>：札幌市中央區南4條西13丁目，72 平方公尺、3 間臥室、2 間廁所，2/5～2/11 連住 6 晚。</li>
+        <li>最近車站是東西線西11丁目站，步行約 11 分鐘；附近有路面電車，可到薄野和藻岩山。</li>
+        <li>大通會場西端在西 12 丁目，走路就到。</li>
+        <li>拖行李的兩天（抵達、回程）在札幌站和住處之間搭計程車，約 3 公里。</li>
+        <li>暖氣是空調，室內會很乾，記得帶保濕用品；有廚房可以煮帝王蟹、和牛火鍋。</li>
       </ul>
     </div>
     <div class="block">
@@ -232,124 +186,53 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
         <li><b>洋蔥式：</b>發熱衣 ＋ 刷毛或薄羽絨背心 ＋ 長版防風防水羽絨外套。室內很熱，中層要好脫。</li>
         <li><b>腳最重要：</b>防滑防水雪靴，到了再去便利商店或札幌站買鞋底冰爪。</li>
         <li><b>配件：</b>蓋耳毛帽、脖圍、防水手套（毛線手套碰雪會濕）、暖暖包（手機太冷會自動關機）。</li>
+        <li><b>二日遊背包：</b>一晚換洗衣物、盥洗用品、充電器、行動電源。</li>
       </ul>
     </div>
   </div>
-  <div class="note"><b>出發前要確認：</b>小樽雪燈之路歷年大多在 2 月第二週才開始，方案 A、C 排在 2/6 有可能還沒點燈。等 2027 年官方日期公布後再確認，必要時把小樽和其他天對調。雪祭各會場的日期與時間也請以官方公告為準。</div>
 </section>
 
-<section class="vote" aria-labelledby="s-vote">
-  <h2 id="s-vote">你想選哪個？</h2>
-  <p>選好後按「產生訊息」，複製貼到群組就好。</p>
-  <fieldset>
-    <legend>方案</legend>
-    <label class="opt"><input type="radio" name="plan" value="A 定點札幌放鬆版"> A 定點放鬆</label>
-    <label class="opt"><input type="radio" name="plan" value="B 破冰船＋旭山動物園冒險版"> B 破冰船冒險</label>
-    <label class="opt"><input type="radio" name="plan" value="C 富良野美瑛點燈版"> C 富良野美瑛</label>
-  </fieldset>
-  <fieldset>
-    <legend>溫泉加購</legend>
-    <label class="opt"><input type="radio" name="onsen" value="想加溫泉一晚"> 想加</label>
-    <label class="opt"><input type="radio" name="onsen" value="不用加溫泉"> 不用</label>
-    <label class="opt"><input type="radio" name="onsen" value="溫泉都可以"> 都可以</label>
-  </fieldset>
-  <label class="field"><span>你的名字</span><input type="text" id="who" autocomplete="nickname"></label>
-  <label class="field"><span>其他想法（選填）</span><textarea id="memo"></textarea></label>
-  <button type="button" id="make">產生訊息並複製</button><span class="status" id="status" role="status"></span>
-  <output id="out"></output>
+<section class="todo" aria-labelledby="s-todo">
+  <h2 id="s-todo">出發前待辦</h2>
+  <p>打勾只會記在你自己的瀏覽器裡。</p>
+  <ul id="todo">
+    <li><label><input type="checkbox" data-k="flight"><span>確認機票日期：2/5（五）去、2/11（四）回<small>原本草稿寫成週四／週三，請對一下訂位紀錄</small></span></label></li>
+    <li><label><input type="checkbox" data-k="tour"><span>報名破冰船＋旭山動物園二日遊（2/6～2/7）<small>週末團較搶手，越早越好；確認集合地點與時間</small></span></label></li>
+    <li><label><input type="checkbox" data-k="airbnb"><span>訂 Airbnb 醫大前（6 晚，$59,193）<small>先等房東回覆空調是否為寒冷地規格、有沒有加濕器</small></span></label></li>
+    <li><label><input type="checkbox" data-k="ic"><span>每人準備 Suica / Kitaca 等 IC 卡</span></label></li>
+    <li><label><input type="checkbox" data-k="useat"><span>小樽回程 u-seat 指定席（當天到小樽站先買）</span></label></li>
+    <li><label><input type="checkbox" data-k="crab"><span>2/10 帝王蟹餐廳訂位</span></label></li>
+    <li><label><input type="checkbox" data-k="official"><span>出發前再看一次雪祭、雪燈之路官網的最新公告</span></label></li>
+  </ul>
 </section>
 
 </main>
-<footer>2027 北海道冬日雪祭 7天6夜自由行 · Airbnb 連住版</footer>
+<footer>2027 北海道冬日雪祭 7天6夜自由行 · 札幌 Airbnb 連住</footer>
 
 <script>
-const plans = [
-  { id:"A", name:"定點札幌放鬆版", tag:"輕鬆、不趕、自己搭 JR",
-    desc:"每天都回札幌睡，小樽和旭川都用 JR 當天來回，最不累。",
-    chips:["每晚住札幌","不用跟團","旭山動物園 JR 自由行"],
-    days:[
-      ["2/5","四","抵達 ＋ 薄野冰雕","13:20 抵達新千歲 → JR 快速 Airport 到札幌 → Airbnb 入住放行李 → 地下街採買 → <strong>薄野冰雕會場</strong>夜間散步"],
-      ["2/6","五","小樽一日遊","三角市場海鮮蓋飯、堺町通商店街、<strong>小樽運河雪燈之路</strong>燭光 → 回札幌"],
-      ["2/7","六","神宮 ＋ 大通會場","參拜雪中<strong>北海道神宮</strong> → 白色戀人公園 → 傍晚到夜間逛<strong>大通雪祭會場</strong>，看巨型雪雕與光雕秀"],
-      ["2/8","日","旭川一日遊","搭 JR 特急到<strong>旭山動物園</strong>看企鵝散步、北極熊 → 回札幌吃成吉思汗烤羊肉"],
-      ["2/9","一","TSUDOME ＋ 夜景","上午 <strong>TSUDOME 會場</strong>玩大型雪滑梯 → 晚上看天氣選藻岩山或 JR Tower T38 夜景"],
-      ["2/10","二","市區彈性日","電視塔補拍、大丸百貨與狸小路買伴手禮、螃蟹大餐"],
-      ["2/11","三","回台","10:00 到新千歲機場（哆啦A夢樂園、拉麵道場、免稅店）→ 14:40 CI131 回台"]
-    ]},
-  { id:"B", name:"破冰船＋旭山動物園二日遊", tag:"最豐富，跟團兩天",
-    desc:"參加二日遊巴士團，一次走完旭山、紋別破冰船、層雲峽冰瀑祭。大行李留 Airbnb，只帶一晚的背包。",
-    chips:["1 晚住層雲峽（團費含一泊二食）","需提早報團","07:30 集合"],
-    days:[
-      ["2/5","四","抵達 ＋ 薄野冰雕","13:20 抵達新千歲 → Airbnb 入住 → <strong>薄野冰雕會場</strong> → 打包隔天的一晚隨身背包"],
-      ["2/6","五","二日遊 第 1 天","07:30 札幌集合出發 → <strong>旭山動物園</strong> → 紋別港搭 <strong>GARINKO 號破冰船</strong> → 入住層雲峽飯店（一泊二食）→ 夜賞<strong>層雲峽冰瀑祭</strong>",true],
-      ["2/7","六","二日遊 第 2 天 ＋ 大通","雪上體驗、男山酒造 → 約 18:00 回到札幌 → 大通會場美食市集 → <strong>大通雪祭會場</strong>光雕秀 → 回 Airbnb"],
-      ["2/8","日","小樽一日遊","三角市場、堺町通、<strong>小樽運河雪燈之路</strong> → 回札幌"],
-      ["2/9","一","TSUDOME ＋ 神宮 ＋ 夜景","上午 <strong>TSUDOME 會場</strong>玩雪梯 → <strong>北海道神宮</strong> → 藻岩山或 JR Tower T38 夜景"],
-      ["2/10","二","市區彈性日","補前幾天沒去的、狸小路買伴手禮、帝王蟹大餐"],
-      ["2/11","三","回台","10:00 到新千歲機場 → 14:40 CI131 回台"]
-    ]},
-  { id:"C", name:"富良野美瑛點燈一日遊", tag:"雪景拍照派，當天來回",
-    desc:"報名專車一日遊去美瑛、富良野，看青池夜間點燈和森林精靈露台，晚上回札幌睡。",
-    chips:["每晚住札幌","KKday / Klook 一日遊","約 20:00 回札幌"],
-    days:[
-      ["2/5","四","抵達 ＋ 薄野冰雕","13:20 抵達新千歲 → Airbnb 入住 → <strong>薄野冰雕會場</strong>夜間散步"],
-      ["2/6","五","小樽一日遊","三角市場、堺町通、<strong>小樽運河雪燈之路</strong> → 回札幌"],
-      ["2/7","六","富良野美瑛一日遊","專車出發：美瑛聖誕樹、白鬚瀑布、<strong>白金青池夜間點燈</strong>、<strong>森林精靈露台</strong> → 約 20:00 回札幌"],
-      ["2/8","日","神宮 ＋ 大通會場","<strong>北海道神宮</strong> → 白色戀人公園 → <strong>大通雪祭會場</strong>巨型雪雕與光雕秀"],
-      ["2/9","一","TSUDOME ＋ 夜景","上午 <strong>TSUDOME 會場</strong>玩雪滑梯 → 藻岩山或 JR Tower T38 夜景"],
-      ["2/10","二","市區彈性日","補拍、大丸百貨與狸小路藥妝、螃蟹大餐"],
-      ["2/11","三","回台","10:00 到新千歲機場 → 14:40 CI131 回台"]
-    ]}
+const days = [
+  ["2/5","五","抵達 ＋ 大通會場","13:20 抵達新千歲 → JR 快速 Airport 到札幌站 → <strong>計程車到 Airbnb</strong>（約 3 公里，免拖行李走雪地）→ 晚上走路到<strong>大通雪祭會場</strong>，從西 12 丁目往東逛雪雕、看光雕秀","第一天不用搭車，逛完走回家；睡前打包隔天的一晚背包"],
+  ["2/6","六","二日遊 第 1 天","約 06:50 出門 → 07:30 集合出發 → <strong>旭山動物園</strong>（企鵝散步、北極熊）→ 紋別港搭 <strong>GARINKO 號破冰船</strong> → 入住層雲峽飯店（一泊二食）→ 夜賞<strong>層雲峽冰瀑祭</strong>","大行李留在 Airbnb；天暗路滑，去集合點可考慮叫計程車",true],
+  ["2/7","日","二日遊 第 2 天 ＋ 休息","雪上體驗、男山酒造 → 約 18:00 回到札幌 → 晚上輕鬆過：附近吃飯，或在 Airbnb 煮火鍋","跟團兩天很累，這晚不排行程"],
+  ["2/8","一","小樽一日遊","東西線到大通 → 札幌站 → JR 到小樽（門到門約 1 小時）→ <strong>三角市場</strong>海鮮蓋飯 → <strong>堺町通</strong>商店街 → 17:00 點燈 <strong>小樽運河雪燈之路</strong>、手宮線會場 → 搭 JR 回札幌","一到小樽先買回程 u-seat；18:30 左右往車站走"],
+  ["2/9","二","西區 ＋ 夜景 ＋ 薄野","上午東西線直達宮之澤，<strong>白色戀人公園</strong> → 回程在圓山公園站下車，參拜雪中<strong>北海道神宮</strong> → 回家休息 → 傍晚搭路面電車到<strong>藻岩山夜景</strong> → 下山後同一條路面電車直達<strong>薄野</strong>，吃成吉思汗烤羊肉、看冰雕","天氣不好上不了藻岩山，就和 D6 對調，或改去 JR Tower T38"],
+  ["2/10","三","TSUDOME ＋ 札幌站","上午東西線到大通轉東豐線到榮町，再搭接駁巴士到 <strong>TSUDOME 會場</strong>玩雪滑梯 → 東豐線直達<strong>札幌站</strong>，大丸百貨、Stellar Place 買伴手禮 → 晚上帝王蟹大餐","晚上回家整理行李"],
+  ["2/11","四","回台","約 09:00 退房，<strong>計程車到札幌站</strong> → JR 快速 Airport → 10:00 到新千歲機場（哆啦A夢樂園、拉麵道場、免稅店）→ 14:40 CI131 回台","日本假日＋雪祭最後一天，JR 會擠，提早出門"]
 ];
+document.getElementById("days").innerHTML = days.map((d,k)=>`
+  <li class="day${d[5]?' away':''}">
+    <div class="badge"><b>D${k+1}</b><span>${d[0]} ${d[1]}</span></div>
+    <div class="body"><div class="title">${d[2]}</div><p class="flow">${d[3]}</p>${d[4]?`<span class="tip">${d[4]}</span>`:''}${d[5]?'<span class="away-note">這晚住層雲峽，不住札幌</span>':''}</div>
+  </li>`).join("");
 
-const tabs = document.getElementById("tabs"), panel = document.getElementById("panel");
-function render(i){
-  const p = plans[i];
-  [...tabs.children].forEach((t,j)=>{t.setAttribute("aria-selected", j===i); t.tabIndex = j===i?0:-1;});
-  panel.setAttribute("aria-labelledby","tab-"+p.id);
-  panel.innerHTML = `
-    <div class="plan-head"><h3>方案 ${p.id}｜${p.name}</h3></div>
-    <p class="plan-desc">${p.desc}</p>
-    <div class="chips">${p.chips.map((c,k)=>`<span class="chip${k===0?' warm':''}">${c}</span>`).join("")}</div>
-    <ol class="days">${p.days.map((d,k)=>`
-      <li class="day${d[4]?' away':''}">
-        <div class="badge"><b>D${k+1}</b><span>${d[0]} ${d[1]}</span></div>
-        <div class="body"><div class="title">${d[2]}</div><p class="flow">${d[3]}</p>${d[4]?'<span class="away-note">這晚住層雲峽，不住札幌</span>':''}</div>
-      </li>`).join("")}</ol>`;
-}
-plans.forEach((p,i)=>{
-  const b = document.createElement("button");
-  b.className="tab"; b.id="tab-"+p.id; b.setAttribute("role","tab"); b.setAttribute("aria-controls","panel");
-  b.innerHTML = `<span class="letter">${p.id}</span><span class="name">${p.name}</span><span class="tag">${p.tag}</span>`;
-  b.addEventListener("click",()=>render(i));
-  b.addEventListener("keydown",e=>{
-    if(e.key==="ArrowRight"||e.key==="ArrowLeft"){
-      const n=(i+(e.key==="ArrowRight"?1:2))%3; render(n); tabs.children[n].focus();
-    }
-  });
-  tabs.appendChild(b);
-});
-render(0);
-
-// message
-document.getElementById("make").addEventListener("click", async ()=>{
-  const plan = document.querySelector('input[name=plan]:checked');
-  const onsen = document.querySelector('input[name=onsen]:checked');
-  const status = document.getElementById("status"), out = document.getElementById("out");
-  if(!plan){ status.textContent="請先選一個方案"; return; }
-  const who = document.getElementById("who").value.trim() || "我";
-  const memo = document.getElementById("memo").value.trim();
-  const msg = `【北海道雪祭 2027】${who} 的選擇\n方案：${plan.value}\n溫泉：${onsen?onsen.value:"沒意見"}${memo?"\n想法："+memo:""}`;
-  out.textContent = msg;
-  try{ await navigator.clipboard.writeText(msg); status.textContent="已複製，貼到群組就好"; }
-  catch(e){
-    const r=document.createRange(); r.selectNodeContents(out);
-    const s=getSelection(); s.removeAllRanges(); s.addRange(r);
-    status.textContent="已選取文字，請手動複製";
-  }
+// checklist (per-viewer)
+document.querySelectorAll('#todo input').forEach(cb=>{
+  const key='hk27-'+cb.dataset.k;
+  try{ cb.checked = localStorage.getItem(key)==='1'; }catch(e){}
+  cb.addEventListener('change',()=>{ try{ localStorage.setItem(key, cb.checked?'1':'0'); }catch(e){} });
 });
 
-// snowfall (hero only, respects reduced motion)
+// snowfall
 (function(){
   const c=document.getElementById("snow"), ctx=c.getContext("2d");
   const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
