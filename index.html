@@ -102,6 +102,14 @@ section{padding:56px 0 8px}
 .stops em{display:block;font-style:normal;color:var(--muted);font-size:.9rem}
 .day .body{padding:16px 18px}
 .day .title{font-size:1.1rem}
+.cost-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:var(--paper)}
+.cost{border-collapse:collapse;width:100%;min-width:420px;font-size:.98rem}
+.cost th,.cost td{padding:12px 16px;text-align:left;border-bottom:1px solid var(--line)}
+.cost thead th{background:var(--frost);font-family:"Noto Serif TC",serif}
+.cost td.num,.cost th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.cost tfoot td{font-weight:700;border-bottom:0;background:var(--lantern-soft)}
+.cost small{display:block;color:var(--muted);font-size:.85rem}
+.cost-note{color:var(--muted);font-size:.9rem;margin:12px 0 0}
 footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center}
 @media (max-width:560px){
   .day{grid-template-columns:48px 1fr;gap:12px}
@@ -206,12 +214,30 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
   <ul id="todo">
     <li><label><input type="checkbox" data-k="flight"><span>確認機票日期：2/5（五）去、2/11（四）回<small>原本草稿寫成週四／週三，請對一下訂位紀錄</small></span></label></li>
     <li><label><input type="checkbox" data-k="tour"><span>報名 KKday 紋別破冰船札幌二日遊（2/6～2/7）<small>保證成團；41 天前取消收 5% 手續費；層雲峽飯店於出發 4 天前通知</small></span></label></li>
-    <li><label><input type="checkbox" data-k="airbnb"><span>訂 Airbnb 醫大前（6 晚，$59,193）<small>先等房東回覆空調是否為寒冷地規格、有沒有加濕器</small></span></label></li>
-    <li><label><input type="checkbox" data-k="ic"><span>每人準備 Suica / Kitaca 等 IC 卡</span></label></li>
-    <li><label><input type="checkbox" data-k="useat"><span>小樽回程 u-seat 指定席（當天到小樽站先買）</span></label></li>
+    <li><label><input type="checkbox" data-k="airbnb"><span>訂 Airbnb 醫大前（6 晚，$59,604）<small>先等房東回覆空調是否為寒冷地規格、有沒有加濕器</small></span></label></li>
+    <li><label><input type="checkbox" data-k="ic"><span>每人準備 Suica / Kitaca 等 IC 卡<small>車票本體用 IC 卡刷，u-seat 只是座位指定券，兩個搭配就完全不用排隊買票</small></span></label></li>
+    <li><label><input type="checkbox" data-k="useat-d7"><span>【必訂】2/11 札幌 → 新千歲機場 快速 Airport u-seat（約 09:30 班次）<small>日本假日＋雪祭最後一天，最容易客滿；開放預約就用「えきねっと」訂，選車廂最後一排或最前排方便放行李</small></span></label></li>
+    <li><label><input type="checkbox" data-k="useat-d1"><span>【建議】2/5 新千歲機場 → 札幌 快速 Airport u-seat<small>選 14:30 左右的班次，預留入境領行李的時間；趕不上可在發車前上網改班次</small></span></label></li>
+    <li><label><input type="checkbox" data-k="useat-d4"><span>【可選】2/8 小樽 → 札幌 快速 Airport u-seat（18:30～19:00 班次）<small>平日去程不用訂；回程不想站可以先訂，或到小樽站再用售票機買</small></span></label></li>
     <li><label><input type="checkbox" data-k="crab"><span>2/10 帝王蟹餐廳訂位</span></label></li>
     <li><label><input type="checkbox" data-k="official"><span>出發前再看一次雪祭、雪燈之路官網的最新公告</span></label></li>
   </ul>
+</section>
+
+<section aria-labelledby="s-cost" style="padding-bottom:24px">
+  <h2 class="sec-title" id="s-cost">花費紀錄</h2>
+  <p class="sec-sub">已確定的費用，金額為新台幣，每人分攞以 3 人計算。</p>
+  <div class="cost-wrap">
+    <table class="cost">
+      <thead><tr><th scope="col">項目</th><th scope="col" class="num">總價</th><th scope="col" class="num">每人</th></tr></thead>
+      <tbody>
+        <tr><td>Airbnb 醫大前<small>2/5～2/11，6 晚</small></td><td class="num">$59,604</td><td class="num">$19,868</td></tr>
+        <tr><td>KKday 紋別破冰船札幌二日遊<small>2/6～2/7，含層雲峽住宿與 4 餐</small></td><td class="num">$32,799</td><td class="num">$10,933</td></tr>
+      </tbody>
+      <tfoot><tr><td>合計</td><td class="num">$92,403</td><td class="num">$30,801</td></tr></tfoot>
+    </table>
+  </div>
+  <p class="cost-note">機票、交通、餐費與門票尚未列入；每人金額四捨五入到元。</p>
 </section>
 
 </main>
