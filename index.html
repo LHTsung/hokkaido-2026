@@ -94,6 +94,14 @@ section{padding:56px 0 8px}
 .todo label:has(input:checked) span{text-decoration:line-through;color:#8FA3B8}
 .todo small{display:block;color:#A9BCCD}
 
+.stops{list-style:none;margin:12px 0 4px;padding:0;border-top:1px dashed var(--line)}
+.stops li{display:grid;grid-template-columns:5.5em 1fr;gap:12px;padding:8px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+.stops li:last-child{border-bottom:0}
+.stops .t{color:var(--lantern);font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.stops b{display:block;font-weight:600}
+.stops em{display:block;font-style:normal;color:var(--muted);font-size:.9rem}
+.day .body{padding:16px 18px}
+.day .title{font-size:1.1rem}
 footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center}
 @media (max-width:560px){
   .day{grid-template-columns:48px 1fr;gap:12px}
@@ -131,7 +139,7 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
 
 <section aria-labelledby="s-plan">
   <h2 class="sec-title" id="s-plan">每日行程</h2>
-  <p class="sec-sub">橘色框的那天晚上住層雲峽，其他每晚都回札幌 Airbnb。</p>
+  <p class="sec-sub">D1～D7 逐日時間表，時間都是預估，可依當天狀況調整。橘色框的那天晚上住層雲峽，其他每晚都回札幌 Airbnb。</p>
   <div class="chips">
     <span class="chip warm">1 晚住層雲峽（團費含一泊二食）</span>
     <span class="chip">二日遊需提早報名</span>
@@ -211,18 +219,94 @@ footer{color:var(--muted);font-size:.85rem;padding:24px 0 48px;text-align:center
 
 <script>
 const days = [
-  ["2/5","五","抵達 ＋ 大通會場","13:20 抵達新千歲 → JR 快速 Airport 到札幌站 → <strong>計程車到 Airbnb</strong>（約 3 公里，免拖行李走雪地）→ 晚上走路到<strong>大通雪祭會場</strong>，從西 12 丁目往東逛雪雕、看光雕秀","第一天不用搭車，逛完走回家；睡前打包隔天的一晚背包"],
-  ["2/6","六","二日遊 第 1 天","約 06:50 出門 → 07:30 集合出發 → <strong>旭山動物園</strong>（企鵝散步、北極熊）→ 紋別港搭 <strong>GARINKO 號破冰船</strong> → 入住層雲峽飯店（一泊二食）→ 夜賞<strong>層雲峽冰瀑祭</strong>","大行李留在 Airbnb；天暗路滑，去集合點可考慮叫計程車",true],
-  ["2/7","日","二日遊 第 2 天 ＋ 休息","雪上體驗、男山酒造 → 約 18:00 回到札幌 → 晚上輕鬆過：附近吃飯，或在 Airbnb 煮火鍋","跟團兩天很累，這晚不排行程"],
-  ["2/8","一","小樽一日遊","東西線到大通 → 札幌站 → JR 到小樽（門到門約 1 小時）→ <strong>三角市場</strong>海鮮蓋飯 → <strong>堺町通</strong>商店街 → 17:00 點燈 <strong>小樽運河雪燈之路</strong>、手宮線會場 → 搭 JR 回札幌","一到小樽先買回程 u-seat；18:30 左右往車站走"],
-  ["2/9","二","西區 ＋ 夜景 ＋ 薄野","上午東西線直達宮之澤，<strong>白色戀人公園</strong> → 回程在圓山公園站下車，參拜雪中<strong>北海道神宮</strong> → 回家休息 → 傍晚搭路面電車到<strong>藻岩山夜景</strong> → 下山後同一條路面電車直達<strong>薄野</strong>，吃成吉思汗烤羊肉、看冰雕","天氣不好上不了藻岩山，就和 D6 對調，或改去 JR Tower T38"],
-  ["2/10","三","TSUDOME ＋ 札幌站","上午東西線到大通轉東豐線到榮町，再搭接駁巴士到 <strong>TSUDOME 會場</strong>玩雪滑梯 → 東豐線直達<strong>札幌站</strong>，大丸百貨、Stellar Place 買伴手禮 → 晚上帝王蟹大餐","晚上回家整理行李"],
-  ["2/11","四","回台","約 09:00 退房，<strong>計程車到札幌站</strong> → JR 快速 Airport → 10:00 到新千歲機場（哆啦A夢樂園、拉麵道場、免稅店）→ 14:40 CI131 回台","日本假日＋雪祭最後一天，JR 會擠，提早出門"]
+  { date:"2/5", wd:"五", title:"抵達札幌 ＋ 大通雪祭會場",
+    sum:"第一天不搭地鐵，只在住處附近走走，熟悉環境。",
+    stops:[
+      ["13:20","抵達新千歲機場","CI130 落地，入境、領行李。"],
+      ["約 14:20","JR 快速 Airport 到札幌站","約 40 分鐘；建議買 u-seat 指定席放行李。"],
+      ["約 15:10","札幌站搭計程車到住處","南4條西13丁目，約 3 公里，三人分攤很划算。"],
+      ["約 15:30","入住 Airbnb","放行李、開空調暖房，去附近便利商店買水和早餐。"],
+      ["17:30","晚餐","住處附近或大通周邊，第一餐簡單吃。"],
+      ["18:30","大通雪祭會場","走路到西 12 丁目，一路往東逛巨型雪雕、看光雕秀，最後到電視塔一帶。"],
+      ["21:00","走回家休息","睡前打包隔天的一晚背包。"]
+    ], tip:"雪靴先穿一天適應；冰爪可在便利商店買。" },
+  { date:"2/6", wd:"六", title:"二日遊 第 1 天：旭山動物園 ＋ 破冰船", away:true,
+    sum:"跟團出發，大行李留在 Airbnb，只背一晚份的小背包。",
+    stops:[
+      ["06:50","出門前往集合點","天還沒全亮、路面結冰，可考慮叫計程車。"],
+      ["07:30","二日遊出發","確認集合地點與時間以旅行社通知為準。"],
+      ["上午","旭山動物園","企鵝散步、北極熊、海豹館。"],
+      ["下午","紋別港 GARINKO 號破冰船","出海看流冰，船上非常冷，帽子手套要戴好。"],
+      ["傍晚","入住層雲峽溫泉飯店","泡湯、享用一泊二食的晚餐。"],
+      ["晚上","層雲峽冰瀑祭","冰柱點燈，就在飯店附近。"]
+    ], tip:"背包：一晚換洗衣物、盥洗用品、充電器、行動電源。" },
+  { date:"2/7", wd:"日", title:"二日遊 第 2 天 ＋ 晚上休息",
+    sum:"跟團回到札幌後不排行程，好好休息。",
+    stops:[
+      ["上午","飯店早餐、退房","層雲峽溫泉早晨很美，可以再泡一次湯。"],
+      ["白天","雪上體驗、男山酒造","依行程安排；酒造可試飲、買清酒伴手禮。"],
+      ["約 18:00","回到札幌","搭地鐵或計程車回住處。"],
+      ["晚上","附近吃飯或 Airbnb 煮火鍋","順便洗衣服，前兩天的衣服一次處理。"]
+    ], tip:"跟團兩天很累，這晚早點睡。" },
+  { date:"2/8", wd:"一", title:"小樽一日遊 ＋ 雪燈之路",
+    sum:"平日去小樽人比較少，白天逛市場和老街，傍晚看雪燈之路。",
+    stops:[
+      ["09:30","出門","東西線西11丁目 → 大通，轉南北線一站到札幌站。"],
+      ["約 10:15","JR 到小樽","快速約 30～40 分鐘。"],
+      ["11:00","三角市場","小樽站旁，吃海鮮蓋飯當午餐。"],
+      ["13:00","堺町通商店街","玻璃工藝、音樂盒堂、LeTAO 甜點，一路逛下去。"],
+      ["16:00","咖啡廳休息取暖","等天黑，順便在小樽站先買好回程 u-seat。"],
+      ["17:00","小樽運河雪燈之路","運河會場與手宮線會場，點燈後最美。"],
+      ["18:30","往小樽站走","避開 21:00 散場尖峰。"],
+      ["約 19:30","回到札幌","札幌站周邊吃晚餐，再搭地鐵回家。"]
+    ], tip:"每人準備 Suica 或 Kitaca，不用排隊買票。" },
+  { date:"2/9", wd:"二", title:"西區 ＋ 藻岩山夜景 ＋ 薄野",
+    sum:"白天往西，晚上往南，靠東西線和路面電車串起來。",
+    stops:[
+      ["09:30","東西線直達宮之澤站","從西11丁目搭，不用轉車。"],
+      ["10:00","白色戀人公園","巧克力工廠、雪景庭園，買限定伴手禮。"],
+      ["12:00","東西線到圓山公園站","在圓山一帶吃午餐，咖啡廳很多。"],
+      ["13:30","北海道神宮","從圓山公園站步行約 15 分鐘，雪中參拜。"],
+      ["15:00","回家休息","晚上要出門很久，先回去暖身。"],
+      ["16:30","路面電車到藻岩山","在「ロープウェイ入口」站下車，轉接駁巴士到纜車站。"],
+      ["17:00","藻岩山夜景","日落後慢慢變成夜景，山頂非常冷。"],
+      ["19:00","路面電車直達薄野","同一條路線，不用轉車。"],
+      ["19:30","成吉思汗烤羊肉 ＋ 薄野冰雕","熱門店要排隊，先排再去看冰雕。"],
+      ["21:30","回家","路面電車或計程車。"]
+    ], tip:"出門前看藻岩山纜車官網的即時影像；天氣不好就和 D6 對調，或改去 JR Tower T38。" },
+  { date:"2/10", wd:"三", title:"TSUDOME 玩雪 ＋ 札幌站購物",
+    sum:"早上玩雪，下午買伴手禮，晚上吃最後的大餐。",
+    stops:[
+      ["09:00","出門前往 TSUDOME","東西線到大通，轉東豐線到榮町，再轉接駁巴士。"],
+      ["10:00","TSUDOME 會場","大型雪滑梯、雪上遊戲，室內區可休息。"],
+      ["12:30","東豐線直達札幌站","不用轉車。"],
+      ["13:00","札幌站午餐","JR Tower 或 Stellar Place 的餐廳樓層。"],
+      ["14:00","大丸百貨、Stellar Place 購物","伴手禮、藥妝一次買齊；B1 食品館也可看看。"],
+      ["18:00","帝王蟹大餐","最後一晚，記得提早訂位。"],
+      ["20:00","回家整理行李","垃圾照規定分類，準備明天退房。"]
+    ], tip:"大件伴手禮最後一天再買，免得行李太早塞滿。" },
+  { date:"2/11", wd:"四", title:"退房回台",
+    sum:"日本假日加上雪祭最後一天，交通會擠，一律提早。",
+    stops:[
+      ["08:00","起床、最後整理","垃圾分類、檢查有沒有東西忘記帶。"],
+      ["09:00","退房，計程車到札幌站","拖行李不走雪地。"],
+      ["約 09:30","JR 快速 Airport 到新千歲","建議買 u-seat 指定席。"],
+      ["10:15","新千歲機場","辦理報到、託運行李。"],
+      ["10:45","機場逛街","哆啦A夢樂園、拉麵道場、伴手禮店。"],
+      ["12:30","出境、免稅店","預留充足時間過安檢。"],
+      ["14:40","CI131 起飛","18:15 抵達台北。"]
+    ], tip:"雪祭最後一天機場人多，報到早一點比較安心。" }
 ];
 document.getElementById("days").innerHTML = days.map((d,k)=>`
-  <li class="day${d[5]?' away':''}">
-    <div class="badge"><b>D${k+1}</b><span>${d[0]} ${d[1]}</span></div>
-    <div class="body"><div class="title">${d[2]}</div><p class="flow">${d[3]}</p>${d[4]?`<span class="tip">${d[4]}</span>`:''}${d[5]?'<span class="away-note">這晚住層雲峽，不住札幌</span>':''}</div>
+  <li class="day${d.away?' away':''}">
+    <div class="badge"><b>D${k+1}</b><span>${d.date} ${d.wd}</span></div>
+    <div class="body">
+      <div class="title">${d.title}</div>
+      <p class="flow">${d.sum}</p>
+      <ul class="stops">${d.stops.map(s=>`<li><span class="t">${s[0]}</span><span><b>${s[1]}</b>${s[2]?`<em>${s[2]}</em>`:''}</span></li>`).join("")}</ul>
+      ${d.tip?`<span class="tip">💡 ${d.tip}</span>`:''}
+      ${d.away?'<span class="away-note">這晚住層雲峽，不住札幌</span>':''}
+    </div>
   </li>`).join("");
 
 // checklist (per-viewer)
